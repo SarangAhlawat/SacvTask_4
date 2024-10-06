@@ -19,30 +19,37 @@
   >
     <video style="height: 100vh;
       width: 100%;" autoplay muted id="myVideo">
-      <source src="bgvid2.mp4" type="video/mp4" />
+      <source src="scav41.mp4" type="video/mp4" />
     </video>
     <div class="ccontainer">
     <div style="position: absolute; bottom: 260px; left: 35.7%;" class="container">
       <h1>Correct Answer!</h1>
-      <p>Next Room: <span id="room-number"></span></p>
-      <p>Character Revealed: <span id="passcode-char"></span></p>
-      <!-- <button id="next-question">Next Question</button> -->
+      <p> <span id="room-number"></span></p>
+    <span id="passcode-char"></span>
     </div>
 </div>
 
 
     <script>
-      // Retrieve data from localStorage
-      const roomNumber = localStorage.getItem("roomNumber");
-      const passcodeChar = localStorage.getItem("passcodeChar");
 
-      document.getElementById("room-number").textContent = roomNumber;
-      document.getElementById("passcode-char").textContent = passcodeChar;
+      document.addEventListener('DOMContentLoaded', function () {
+        const passcodeChar = localStorage.getItem('passcodeChar');
+        const roomNumber = localStorage.getItem('roomNumber');
+        
+        // Debugging - Check what is retrieved
+        console.log("Retrieved Room Number: ", roomNumber);
 
-      // Clear the passcodeChar after displaying to prevent reuse
-    //   localStorage.removeItem("passcodeChar");
+        if (passcodeChar) {
+            document.getElementById('passcode-char').textContent = passcodeChar;
+        }
+
+        if (roomNumber) {
+            document.getElementById('room-number').textContent = `Proceed to room: ${roomNumber}`;
+        }
+    });
 
 
+    
 
     setTimeout(function() {
     const containerDiv = document.querySelector('.container');
