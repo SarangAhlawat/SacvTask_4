@@ -42,18 +42,15 @@
       // Clear the passcodeChar after displaying to prevent reuse
     //   localStorage.removeItem("passcodeChar");
 
-      // Handle Next Question button
-      document
-        .getElementById("next-question")
-        .addEventListener("click", function () {
-          window.location.href = "index.html";
-        });
 
 
-        setTimeout(function() {
-            const containerDiv = document.querySelector('.ccontainer');
-            containerDiv.style.display = 'flex';  // Make the div visible
-        }, 5000); // 4 seconds delay
+    setTimeout(function() {
+    const containerDiv = document.querySelector('.container');
+    console.log(containerDiv);  // Check if the element is correctly selected
+    containerDiv.classList.add('show');  // Add the 'show' class to make it visible and animate
+}, 5000); // 5 seconds delay
+
+
     </script>
   </body>
 </html>

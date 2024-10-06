@@ -8,15 +8,41 @@ body {
 }
 
 .container {
-    /* display: none; */
+    display: none;
     width: 400px;
     margin: 100px auto;
     padding: 30px;
-    background: #fff;
+    background: #f5f5f51e;
+    border: 2px solid;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.888);
     text-align: center;
+    animation: slideUp 0.5s ease forwards; /* Apply the animation */
 }
+
+
+
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%); /* Start below the viewport */
+        opacity: 0; /* Optional: hidden while sliding up */
+    }
+    100% {
+        transform: translateY(0); /* Final position */
+        opacity: 1; /* Visible */
+    }
+}
+
+.container.show {
+    display: block; /* Show the element before applying the animation */
+}
+
+
+
+
+
+
 
 h1, h2 {
     color: #333;

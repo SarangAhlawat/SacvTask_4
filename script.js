@@ -1,151 +1,124 @@
-// script.js
-
-// Define team data
 const teamData = {
-    1: {
-        pcs: [1, 2, 3, 4],
+    D1: {
+        pcs: [3, 7, 13, 19],
         questions: {
-            1: { question: "What is 2 + 3 * 4?", answer: "14", room: "Room A", passcodeChar: "X" },
-            2: { question: "What is (8 / 2) + 5?", answer: "9", room: "Room B", passcodeChar: "Y" },
-            3: { question: "What is 7 - 3 + 2 * 5?", answer: "14", room: "Room C", passcodeChar: "Z" },
-            4: { question: "What is 12 / (3 + 1)?", answer: "3", room: "Room D", passcodeChar: "W" }
+            3: { question: "What is 8+(6×3)−9÷3 = x, x×2−5?", answer: "41", room: "404", passcodeChar: "Q" },
+            7: { question: "What is (15÷3)+12−(4×2) = x, x+6÷2?", answer: "12", room: "405", passcodeChar: "X" },
+            13: { question: "What is 24−(4×3)+(18÷3) = x, x÷2+4?", answer: "13", room: "412", passcodeChar: "J" },
+            19: { question: "What is 5×(6+2)−10÷2 = x, x÷5+7?", answer: "14", room: "613", passcodeChar: "V" }
         }
     },
-    2: {
-        pcs: [5, 6, 7, 8],
+    D2: {
+        pcs: [5, 9, 15, 1],
         questions: {
-            5: { question: "What is 5 * 6 - 4?", answer: "26", room: "Room E", passcodeChar: "A" },
-            6: { question: "What is 9 + 2 * 3?", answer: "15", room: "Room F", passcodeChar: "B" },
-            7: { question: "What is (10 - 2) * 3?", answer: "24", room: "Room G", passcodeChar: "C" },
-            8: { question: "What is 16 / 4 + 5?", answer: "9", room: "Room H", passcodeChar: "D" }
+            5: { question: "What is (30÷5)+(8×3)−9 = x, x−4×2?", answer: "13", room: "405", passcodeChar: "Z" },
+            9: { question: "What is 16+(7×4)−(12÷3) = x, x÷2+5?", answer: "25", room: "412", passcodeChar: "W" },
+            15: { question: "What is 50÷(5+5)+(3×4) = x, x×2−5?", answer: "29", room: "402", passcodeChar: "L" },
+            1: { question: "What is (6×5)−8+4÷2 = x, x÷3+6?", answer: "14", room: "613", passcodeChar: "P" }
         }
     },
-    3: {
-        pcs: [9, 10, 11, 12],
+    D3: {
+        pcs: [7, 11, 17, 3],
         questions: {
-            9: { question: "What is 3 + 4 * 2?", answer: "11", room: "Room I", passcodeChar: "E" },
-            10: { question: "What is 14 / 2 - 3?", answer: "4", room: "Room J", passcodeChar: "F" },
-            11: { question: "What is (5 + 3) * 2?", answer: "16", room: "Room K", passcodeChar: "G" },
-            12: { question: "What is 20 - 5 * 3?", answer: "5", room: "Room L", passcodeChar: "H" }
+            7: { question: "What is 9×(4+1)−8÷2 = x, x−14÷2?", answer: "34", room: "412", passcodeChar: "G" },
+            11: { question: "What is (18+6)÷4+12×2 = x, x+4−3?", answer: "31", room: "402", passcodeChar: "R" },
+            17: { question: "What is (8×3)−9+12÷4 = x, x÷3×2?", answer: "12", room: "404", passcodeChar: "K" },
+            3: { question: "What is 42÷(8−2)+(3×6) = x, x+5×2?", answer: "35", room: "613", passcodeChar: "C" }
         }
     },
-    4: {
-        pcs: [13, 14, 15, 16],
+    D4: {
+        pcs: [9, 13, 19, 5],
         questions: {
-            13: { question: "What is 6 + 2 * 5?", answer: "16", room: "Room M", passcodeChar: "I" },
-            14: { question: "What is (12 / 4) + 7?", answer: "10", room: "Room N", passcodeChar: "J" },
-            15: { question: "What is 9 - 3 + 4 * 2?", answer: "14", room: "Room O", passcodeChar: "K" },
-            16: { question: "What is 18 / 3 - 2?", answer: "4", room: "Room P", passcodeChar: "L" }
+            9: { question: "What is (30÷5)×4+20−3 = x, x−4÷2?", answer: "39", room: "402", passcodeChar: "H" },
+            13: { question: "What is (50÷5)+10×3−7 = x, x×2+3?", answer: "69", room: "404", passcodeChar: "T" },
+            19: { question: "What is 8+(27÷3)+4×6 = x, x−6÷2?", answer: "38", room: "405", passcodeChar: "F" },
+            5: { question: "What is (45÷9)×6−8+4 = x, x+4×2?", answer: "34", room: "613", passcodeChar: "M" }
         }
     },
-    5: {
-        pcs: [17, 18, 19, 20],
+    D5: {
+        pcs: [11, 15, 1, 7],
         questions: {
-            17: { question: "What is 7 * 3 - 5?", answer: "16", room: "Room Q", passcodeChar: "M" },
-            18: { question: "What is (8 + 2) * 3?", answer: "30", room: "Room R", passcodeChar: "N" },
-            19: { question: "What is 15 / 3 + 4?", answer: "9", room: "Room S", passcodeChar: "O" },
-            20: { question: "What is 10 - 2 * 4?", answer: "2", room: "Room T", passcodeChar: "P" }
+            11: { question: "What is 60÷(5×2)+(9×3) = x, x−3×4?", answer: "21", room: "404", passcodeChar: "V" },
+            15: { question: "What is (12+8)×3−5÷5+1 = x, x÷4−3?", answer: "12", room: "405", passcodeChar: "X" },
+            1: { question: "What is 6+(15÷3)×4−8 = x, x+7×2?", answer: "32", room: "412", passcodeChar: "N" },
+            7: { question: "What is (21÷7)×5+12−8÷2 = x, x−2×4?", answer: "15", room: "613", passcodeChar: "D" }
         }
     },
-    6: {
-        pcs: [1, 5, 9, 13],
+    D6: {
+        pcs: [13, 17, 3, 9],
         questions: {
-            1: { question: "What is 4 + 5 * 2?", answer: "14", room: "Room U", passcodeChar: "Q" },
-            5: { question: "What is (9 / 3) + 6?", answer: "9", room: "Room V", passcodeChar: "R" },
-            9: { question: "What is 12 - 4 + 3 * 2?", answer: "14", room: "Room W", passcodeChar: "S" },
-            13: { question: "What is 16 / 4 + 5?", answer: "9", room: "Room X", passcodeChar: "T" }
+            13: { question: "What is (36÷6)+(5×4)−7 = x, x×2−8?", answer: "30", room: "405", passcodeChar: "B" },
+            17: { question: "What is 50−(6×5)+(16÷4) = x, x+6÷3?", answer: "26", room: "412", passcodeChar: "Y" },
+            3: { question: "What is (8×4)−15+9÷3 = x, x÷2+7?", answer: "17", room: "402", passcodeChar: "Z" },
+            9: { question: "What is 9+(7×5)−10÷2 = x, x÷3+9?", answer: "22", room: "613", passcodeChar: "H" }
         }
     },
-    7: {
-        pcs: [2, 6, 10, 14],
+    D7: {
+        pcs: [15, 19, 5, 11],
         questions: {
-            2: { question: "What is 5 * 4 - 6?", answer: "14", room: "Room Y", passcodeChar: "U" },
-            6: { question: "What is (10 / 2) + 7?", answer: "12", room: "Room Z", passcodeChar: "V" },
-            10: { question: "What is 8 - 3 + 2 * 5?", answer: "12", room: "Room AA", passcodeChar: "W" },
-            14: { question: "What is 20 / 5 + 3?", answer: "7", room: "Room AB", passcodeChar: "X" }
+            15: { question: "What is (45÷9)+18×2−11 = x, x−6÷3?", answer: "28", room: "412", passcodeChar: "D" },
+            19: { question: "What is 16+(12÷4)+5×3 = x, x×2−7?", answer: "61", room: "402", passcodeChar: "J" },
+            5: { question: "What is (30÷6)+(4×7)−5 = x, x+4×3?", answer: "40", room: "404", passcodeChar: "P" },
+            11: { question: "What is 15+(18÷6)×5−7 = x, x×2+3?", answer: "49", room: "613", passcodeChar: "Q" }
         }
     },
-    8: {
-        pcs: [3, 7, 11, 15],
+    D8: {
+        pcs: [17, 1, 7, 13],
         questions: {
-            3: { question: "What is 6 + 7 * 2?", answer: "20", room: "Room AC", passcodeChar: "Y" },
-            7: { question: "What is (14 / 2) + 5?", answer: "12", room: "Room AD", passcodeChar: "Z" },
-            11: { question: "What is 9 - 4 + 3 * 3?", answer: "14", room: "Room AE", passcodeChar: "A" },
-            15: { question: "What is 24 / 6 - 2?", answer: "2", room: "Room AF", passcodeChar: "B" }
+            17: { question: "What is (50÷5)×3+12−8 = x, x−9÷3?", answer: "31", room: "402", passcodeChar: "M" },
+            1: { question: "What is 24−(8÷4)+7×3 = x, x×2-26?", answer: "60", room: "404", passcodeChar: "W" },
+            7: { question: "What is 15×(5+1)−8÷4 = x, x÷2+12?", answer: "56", room: "405", passcodeChar: "F" },
+            13: { question: "What is (21÷7)+5×6−9÷3 = x, x−2×5?", answer: "20", room: "613", passcodeChar: "K" }
         }
     },
-    9: {
-        pcs: [4, 8, 12, 16],
+    D9: {
+        pcs: [19, 3, 9, 15],
         questions: {
-            4: { question: "What is 7 * 2 + 5?", answer: "19", room: "Room AG", passcodeChar: "C" },
-            8: { question: "What is (16 / 4) + 6?", answer: "10", room: "Room AH", passcodeChar: "D" },
-            12: { question: "What is 10 - 3 + 4 * 2?", answer: "15", room: "Room AI", passcodeChar: "E" },
-            16: { question: "What is 18 / 3 + 4?", answer: "10", room: "Room AJ", passcodeChar: "F" }
+            19: { question: "What is 6+(7×6)−10÷2 = x, x+4÷2?", answer: "45", room: "404", passcodeChar: "C" },
+            3: { question: "What is 8×(4+3)−6÷3 = x, x÷3−5?", answer: "13", room: "405", passcodeChar: "T" },
+            9: { question: "What is 40−(12÷6)+5×4 = x, x+10÷5?", answer: "60", room: "412", passcodeChar: "L" },
+            15: { question: "What is (35÷7)×5+10−7 = x, x×2+1?", answer: "57", room: "613", passcodeChar: "S" }
         }
     },
-    10: {
-        pcs: [5, 9, 13, 17],
+    D10: {
+        pcs: [1, 5, 11, 17],
         questions: {
-            5: { question: "What is 8 + 9 * 2?", answer: "26", room: "Room AK", passcodeChar: "G" },
-            9: { question: "What is (20 / 5) + 7?", answer: "11", room: "Room AL", passcodeChar: "H" },
-            13: { question: "What is 12 - 5 + 3 * 3?", answer: "16", room: "Room AM", passcodeChar: "I" },
-            17: { question: "What is 30 / 5 - 2?", answer: "4", room: "Room AN", passcodeChar: "J" }
+            1: { question: "What is 12+(9×5)−25÷5 = x, x−3÷3?", answer: "51", room: "405", passcodeChar: "K" },
+            5: { question: "What is (30÷5)×4+9−7 = x, x÷2+6?", answer: "19", room: "412", passcodeChar: "R" },
+            11: { question: "What is 25−(5×2)+(24÷4) = x, x×3+8?", answer: "71", room: "402", passcodeChar: "Q" },
+            17: { question: "What is 60÷(8−2)+(4×7) = x, x−8÷4?", answer: "36", room: "613", passcodeChar: "X" }
         }
     }
 };
 
-// Initialize team progress in localStorage if not already present
-function initializeProgress() {
-    for (let team = 1; team <= 10; team++) {
-        if (!localStorage.getItem(`team_${team}_answered`)) {
-            localStorage.setItem(`team_${team}_answered`, JSON.stringify([]));
-        }
-        if (!localStorage.getItem(`team_${team}_passcode`)) {
-            localStorage.setItem(`team_${team}_passcode`, "");
-        }
-    }
-}
-
-// Call initializeProgress on script load
-initializeProgress();
-
-// Handle Team Form Submission
-document.getElementById('team-form').addEventListener('submit', function(e) {
+document.getElementById('team-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const teamNumber = parseInt(document.getElementById('team-number').value);
+    const teamNumber = document.getElementById('team-number').value;
     const pcNumber = parseInt(document.getElementById('pc-number').value);
-
-    // Validate team number
-    if (teamNumber < 1 || teamNumber > 10) {
-        alert("Please enter a valid team number between 1 and 10.");
+    
+    const validTeams = [
+        "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D10"
+    ];
+    
+    if (!validTeams.includes(teamNumber)) {
+        alert("Please enter a valid team number between D1 and D10 (capital 'D'613).");
         return;
     }
+    
 
-    // Validate PC number
     if (pcNumber < 1 || pcNumber > 20) {
         alert("Please enter a valid PC number between 1 and 20.");
         return;
     }
 
-    // Check if the PC number is assigned to the team
+    // pc assigned
     if (!teamData[teamNumber].pcs.includes(pcNumber)) {
         alert("This PC number is not assigned to your team.");
         return;
     }
 
-    // Check if the question for this PC has already been answered
-    // let answeredPCs = JSON.parse(localStorage.getItem(`team_${teamNumber}_answered`));
-    // if (answeredPCs.includes(pcNumber)) {
-    //     alert("You have already answered the question for this PC.");
-    //     return;
-    // }
 
-    // Store current team and PC number in localStorage
-    localStorage.setItem('currentTeam', teamNumber);
-    localStorage.setItem('currentPC', pcNumber);
-
-    // Load the question
     loadQuestion(teamNumber, pcNumber);
 });
 
@@ -156,48 +129,28 @@ function loadQuestion(teamNumber, pcNumber) {
         return;
     }
 
-    // Hide entry form and show question section
     document.getElementById('entry-form').style.display = 'none';
     document.getElementById('question-section').style.display = 'block';
 
-    // Display the question
+    // question
     document.getElementById('question-text').textContent = questionObj.question;
 
-    // Store the correct answer
-    localStorage.setItem('correctAnswer', questionObj.answer);
 }
 
-// Handle Answer Submission
-document.getElementById('answer-form').addEventListener('submit', function(e) {
+
+document.getElementById('answer-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const userAnswer = document.getElementById('answer').value.trim();
     const correctAnswer = localStorage.getItem('correctAnswer');
-    const teamNumber = localStorage.getItem('currentTeam');
-    const pcNumber = parseInt(localStorage.getItem('currentPC'));
 
     if (userAnswer === correctAnswer) {
-        // Retrieve question details
-        const questionObj = teamData[teamNumber].questions[pcNumber];
+        document.getElementById('feedback').textContent = "Correct answer.";
+        document.getElementById('feedback').style.color = 'Green';
 
-        // Store room number and passcode character
-        localStorage.setItem('roomNumber', questionObj.room);
-        localStorage.setItem('passcodeChar', questionObj.passcodeChar);
-
-        // Mark this PC as answered
-        let answeredPCs = JSON.parse(localStorage.getItem(`team_${teamNumber}_answered`));
-        answeredPCs.push(pcNumber);
-        localStorage.setItem(`team_${teamNumber}_answered`, JSON.stringify(answeredPCs));
-
-        // Append the passcode character to the team's passcode
-        let currentPasscode = localStorage.getItem(`team_${teamNumber}_passcode`);
-        currentPasscode += questionObj.passcodeChar;
-        localStorage.setItem(`team_${teamNumber}_passcode`, currentPasscode);
-
-        // Redirect to result page
         window.location.href = 'result.html';
     } else {
-        // If incorrect, show feedback
+
         document.getElementById('feedback').textContent = "Incorrect answer. Please try again.";
         document.getElementById('feedback').style.color = 'red';
     }
