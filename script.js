@@ -1,6 +1,6 @@
 const teamData = {
     D1: {
-        pcs: [3, 7, 13, 19],
+        pcs: [3, 7, 13, 19], //pc no.
         questions: {
             3: { question: "What is 8+(6×3)−9÷3 = x, x×2−5?", answer: "41", room: "404", passcodeChar: "1st Character Revealed: Q" },
             7: { question: "What is (15÷3)+12−(4×2) = x, x+6÷2?", answer: "12", room: "405", passcodeChar: "2nd Character Revealed: X" },
@@ -154,7 +154,7 @@ document.getElementById('answer-form').addEventListener('submit', function (e) {
         document.getElementById('feedback').textContent = "Correct answer.";
         document.getElementById('feedback').style.color = 'green';
 
-        window.location.href = 'result.html';  // Redirect if correct
+        window.location.href = 'result.html';  // if correct
     } else {
         document.getElementById('feedback').textContent = "Incorrect answer. Please try again.";
         document.getElementById('feedback').style.color = 'red';

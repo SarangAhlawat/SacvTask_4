@@ -1,4 +1,3 @@
-<!-- result.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,8 +36,8 @@
         const passcodeChar = localStorage.getItem('passcodeChar');
         const roomNumber = localStorage.getItem('roomNumber');
         
-        // Debugging - Check what is retrieved
-        console.log("Retrieved Room Number: ", roomNumber);
+       
+        console.log("Retrieved Room Number: ", roomNumber); //test
 
         if (passcodeChar) {
             document.getElementById('passcode-char').textContent = passcodeChar;
@@ -54,9 +53,9 @@
 
     setTimeout(function() {
     const containerDiv = document.querySelector('.container');
-    console.log(containerDiv);  // Check if the element is correctly selected
-    containerDiv.classList.add('show');  // Add the 'show' class to make it visible and animate
-}, 5000); // 5 seconds delay
+    console.log(containerDiv);  // test
+    containerDiv.classList.add('show');  
+}, 5000); // 5 sec
 
 
     </script>
